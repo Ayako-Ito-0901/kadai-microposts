@@ -20,6 +20,7 @@ class RegisterController extends Controller
     |
     */
 
+    // この↓ use RegistersUsers; でルーティングのRoute::getとRoute::postを取り込んでいる。@showRegistrationFormと@register
     use RegistersUsers;
 
     /**
@@ -27,13 +28,15 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+     
+     // __construct()でミドルウェアを設定している。ミドルウェアは、controllerにアクセス前に確認される条件
     public function __construct()
     {
         $this->middleware('guest');
