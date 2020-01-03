@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// コントローラーを経由してwelcomeページを表示上書きした
+Route::get('/', 'MicropostsController@index');
 
 // ユーザー登録 ->nameは名前を付けているだけ。後々に、Formやlink_to_route()で使用
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
