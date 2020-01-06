@@ -26,5 +26,6 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 // ユーザー機能　ログイン認証を確認するような措置
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+    Route::resource('microposts', 'MicropostsController', ['only' => ['store', 'destroy']]);
 });
 
